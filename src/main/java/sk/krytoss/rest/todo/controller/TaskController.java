@@ -24,6 +24,11 @@ public class TaskController {
         return taskService.getTasks();
     }
 
+    @RequestMapping(value="/tasks/{taskId}", method=RequestMethod.GET)
+    public Task getTask(@PathVariable(name = "id") Long id) {
+        return taskService.getTask(id);
+    }
+
     @RequestMapping(value="/tasks/{taskId}", method=RequestMethod.PUT)
     public Task updateTask(@PathVariable(value = "id") Long id, @RequestBody Task taskDetails) {
         return taskService.updateTask(id, taskDetails);

@@ -21,6 +21,10 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
+    public Task getTask(Long taskId) {
+        return taskRepository.findById(taskId).get();
+    }
+
     public void deleteTask(Long taskId) {
         taskRepository.deleteById(taskId);
     }
