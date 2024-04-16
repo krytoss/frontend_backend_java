@@ -1,11 +1,12 @@
 package sk.krytoss.rest.todo.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Entity
-@Table(name = "task")
+@Table(name = "tasks")
 public class Task {
 
     @Id
@@ -16,14 +17,15 @@ public class Task {
     @Column(name="task")
     private String task;
 
+    @CreationTimestamp
     @Column(name="created")
-    private LocalDateTime created;
+    private Instant created;
 
     @Column(name="completed")
-    private LocalDateTime completed;
+    private Instant completed;
 
     @Column(name="deleted")
-    private LocalDateTime deleted;
+    private Instant deleted;
 
     public Long getId() {
         return id;
@@ -41,27 +43,27 @@ public class Task {
         this.task = task;
     }
 
-    public LocalDateTime getCreated() {
+    public Instant getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(Instant created) {
         this.created = created;
     }
 
-    public LocalDateTime getCompleted() {
+    public Instant getCompleted() {
         return completed;
     }
 
-    public void setCompleted(LocalDateTime completed) {
+    public void setCompleted(Instant completed) {
         this.completed = completed;
     }
 
-    public LocalDateTime getDeleted() {
+    public Instant getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(LocalDateTime deleted) {
+    public void setDeleted(Instant deleted) {
         this.deleted = deleted;
     }
 }
