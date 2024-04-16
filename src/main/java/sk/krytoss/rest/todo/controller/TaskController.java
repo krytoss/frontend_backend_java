@@ -25,17 +25,17 @@ public class TaskController {
     }
 
     @RequestMapping(value="/tasks/{taskId}", method=RequestMethod.GET)
-    public Task getTask(@PathVariable(name = "id") Long id) {
+    public Task getTask(@PathVariable(name = "taskId") Long id) {
         return taskService.getTask(id);
     }
 
     @RequestMapping(value="/tasks/{taskId}", method=RequestMethod.PUT)
-    public Task updateTask(@PathVariable(value = "id") Long id, @RequestBody Task taskDetails) {
+    public Task updateTask(@PathVariable(value = "taskId") Long id, @RequestBody Task taskDetails) {
         return taskService.updateTask(id, taskDetails);
     }
 
     @RequestMapping(value="/tasks/{taskId}", method=RequestMethod.DELETE)
-    public void deleteTask(@PathVariable(value = "id") Long id) {
+    public void deleteTask(@PathVariable(value = "taskId") Long id) {
         taskService.deleteTask(id);
     }
 }
